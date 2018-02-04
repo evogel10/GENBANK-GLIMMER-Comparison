@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <title>Midterm</title>
+        <style>
+          td {
+            border: 1px solid rgb(80,80,80);
+            padding: 3px;
+          }
+          table {
+            border-collapse: collapse;
+          }
+        </style>
+    </head>
+    <body>
+      <h1>GenBank vs Glimmer3 Comparison</h1>
+
+      <br>Count of Reference Genes/CDS = {{gen_count}}
+      <br>Count of Glimmer3 Predicted Genes = {{glim_count}}
+      <br>Count of Exact Coordinate Matches = {{exact}}
+      <br>Count of 5 Only Matches = {{five}}
+      <br>Count of 3 Only Matches = {{three}}
+      <br>Count of Reference Genes with Neither 5 or 3 Match = {{no}}
+
+      <table>
+        <tr>
+          <th>GenBank AB011549.2 ProteinID</th>
+          <th>5' Gene Start Position</th>
+          <th>3' Gene End Position</th>
+          <th>Glimmer3 Prediction Name</th>
+          <th>5' Glimmer Start Position</th>
+          <th>3' Glimmer Gene End Posion</th>
+          <th>GenBank Glimmer Agreement</th>
+        </tr>
+
+        {% for i in data %}
+        <tr>
+          <td>{{ i[0] }}</td>
+          <td>{{ i[1] }}</td>
+          <td>{{ i[2] }}</td>
+          <td>{{ i[3] }}</td>
+          <td>{{ i[4] }}</td>
+          <td>{{ i[5] }}</td>
+          <td>{{ i[6] }}</td>
+        </tr>
+        {% endfor %}
+
+    </body>
+</html>
